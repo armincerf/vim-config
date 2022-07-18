@@ -1,6 +1,6 @@
 lvim.plugins = {
   -- Themes
-  { "morhetz/gruvbox" },
+  { "gruvbox-community/gruvbox" },
 
   -- Telescope
   { "nvim-telescope/telescope-fzy-native.nvim" },
@@ -31,6 +31,7 @@ lvim.plugins = {
     end,
   },
 
+  -- copilot
   { "github/copilot.vim" },
 
   -- Treesitter
@@ -82,6 +83,25 @@ lvim.plugins = {
 
   -- Git
   {
+    "tpope/vim-fugitive",
+    cmd = {
+      "G",
+      "Git",
+      "Gdiffsplit",
+      "Gread",
+      "Gwrite",
+      "Ggrep",
+      "GMove",
+      "GDelete",
+      "GBrowse",
+      "GRemove",
+      "GRename",
+      "Glgrep",
+      "Gedit"
+    },
+    ft = { "fugitive" }
+  },
+  {
     "ThePrimeagen/git-worktree.nvim",
     after = "telescope.nvim",
     config = function()
@@ -131,6 +151,15 @@ lvim.plugins = {
         dir = vim.fn.expand(vim.fn.stdpath("config") .. "/session/"),
         options = { "buffers", "curdir", "tabpages", "winsize" },
       })
+      -- for cyclist
+      vim.opt.listchars = {
+        ["tab"] = "» ",
+        ["trail"] = "·",
+        ["extends"] = "<",
+        ["precedes"] = ">",
+        ["conceal"] = "┊",
+        ["nbsp"] = "␣",
+      }
     end,
   },
 }

@@ -1,4 +1,5 @@
 -- General and builtins configs
+
 require("armincerf.options")
 
 -- Plugin related configs

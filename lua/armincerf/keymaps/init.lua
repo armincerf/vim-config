@@ -48,6 +48,7 @@ lvim.builtin.which_key.mappings["S"] = {
 lvim.builtin.which_key.mappings["p"] = {
   name = "Project",
   p = { "<cmd>Telescope ghq list<CR>", "List projects" },
+  s = { "<cmd>lua require('telescope.builtin').grep_string()<CR>", "Word Search" }
 }
 
 -- https://github.com/benfowler/telescope-luasnip.nvim

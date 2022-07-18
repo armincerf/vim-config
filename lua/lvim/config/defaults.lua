@@ -1,6 +1,6 @@
 return {
   leader = "space",
-  colorscheme = "onedarker",
+  colorscheme = "gruvbox",
   transparent_window = false,
   format_on_save = {
     ---@usage pattern string pattern used for the autocommand (Default: '*')
