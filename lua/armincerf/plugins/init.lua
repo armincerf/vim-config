@@ -2,6 +2,9 @@ lvim.plugins = {
   -- Themes
   { "gruvbox-community/gruvbox" },
 
+  -- Multiple cursors
+  { "mg979/vim-visual-multi" },
+
   -- Telescope
   { "nvim-telescope/telescope-fzy-native.nvim" },
 
@@ -11,6 +14,13 @@ lvim.plugins = {
     config = function()
       require 'telescope'.load_extension 'ghq'
     end
+  },
+
+  -- Clojure
+  { 'Olical/conjure' },
+  {
+    'clojure-vim/vim-jack-in',
+    requires = { 'radenling/vim-dispatch-neovim', 'tpope/vim-dispatch' },
   },
 
   {
@@ -100,6 +110,14 @@ lvim.plugins = {
       "Gedit"
     },
     ft = { "fugitive" }
+  },
+  {
+    'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim'
+
+    }
   },
   {
     "ThePrimeagen/git-worktree.nvim",

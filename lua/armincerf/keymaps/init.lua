@@ -19,6 +19,9 @@ lvim.builtin.which_key.mappings["r"] = {
   i = { "<cmd>lua require('refactoring').refactor('Inline Variable')<cr>", "Inline variable" },
 }
 
+-- neogit
+lvim.builtin.which_key.mappings["g"]["s"] = { "<cmd>Neogit<cr>", "Magit" }
+
 -- https://github.com/ThePrimeagen/harpoon
 lvim.builtin.which_key.mappings["h"] = {
   name = "Harpoon",
