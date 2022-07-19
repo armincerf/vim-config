@@ -10,7 +10,7 @@ require("armincerf.lsp.tailwindcss")
 -- bashls
 require("armincerf.lsp.bash")
 
-lvim.lsp.automatic_servers_installation = false
+lvim.lsp.automatic_servers_installation = true
 
 local utils = require("armincerf.utils")
 local formatters = require("lvim.lsp.null-ls.formatters")

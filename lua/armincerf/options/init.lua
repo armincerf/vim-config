@@ -10,6 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.cmdheight = 1
 
 lvim.leader = "space"
+lvim.localleader = ","
 
 -- Builtins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile

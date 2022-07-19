@@ -120,6 +120,7 @@ function M:load(config_path)
   autocmds.define_autocmds(lvim.autocommands)
 
   vim.g.mapleader = (lvim.leader == "space" and " ") or lvim.leader
+  vim.g.maplocalleader = lvim.localleader
 
   require("lvim.keymappings").load(lvim.keys)
 
