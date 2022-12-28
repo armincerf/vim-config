@@ -70,6 +70,36 @@ local core_plugins = {
       "cmp-path",
       "cmp-cmdline",
     },
+    requires = {
+      "L3MON4D3/LuaSnip",
+      { "zbirenbaum/copilot.lua",
+        event = { "VimEnter" },
+        config = function()
+          vim.defer_fn(function()
+              require("copilot").setup {
+                plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+                suggestion = {
+                  enabled = true,
+                  auto_trigger = true,
+                  debounce = 75,
+                  keymap = {
+                    accept = "<C-h>",
+                    next = "<C-n>",
+                    prev = "<C-p>",
+                    dismiss = "<C-]>",
+                  },
+                },
+                                       }
+          end, 100)
+        end,
+      },
+      { "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua", "nvim-cmp" },
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+    },
   },
   { "hrsh7th/cmp-nvim-lsp", lazy = true },
   { "saadparwaiz1/cmp_luasnip", lazy = true },
