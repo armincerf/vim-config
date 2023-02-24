@@ -34,35 +34,44 @@ lvim.plugins = {
 
   -- LSP
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        panel = {
+          auto_refresh = false,
+          keymap = {
+            accept = "<CR>",
+            jump_prev = "[[",
+            jump_next = "]]",
+            refresh = "gr",
+            open = "<M-CR>",
+          },
+        },
+        suggestion = {
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-l>",
+            prev = "<M-[>",
+            next = "<M-]>",
+            dismiss = "<C-]>",
+          },
+        },
+      })
+    end,
+  },
+  {
     "ThePrimeagen/refactoring.nvim",
     event = "BufRead",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("refactoring").config({})
-    end,
   },
 
   -- Treesitter
   {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-ts-autotag").config()
-    end,
-  },
-
-  {
-    "folke/todo-comments.nvim",
-    event = "BufRead",
-    config = function()
-      require("todo-comments").config()
-    end,
-  },
-
-  {
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require("colorizer").init()
+      require("colorizer").setup()
     end,
   },
   { "gpanders/nvim-parinfer" },
@@ -155,26 +164,6 @@ lvim.plugins = {
 
   -- Misc
   { "tjdevries/cyclist.vim" },
-
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    config = function()
-      require("persistence").config({
-        dir = vim.fn.expand(vim.fn.stdpath("config") .. "/session/"),
-        options = { "buffers", "curdir", "tabpages", "winsize" },
-      })
-      -- for cyclist
-      vim.opt.listchars = {
-        ["tab"] = "» ",
-        ["trail"] = "·",
-        ["extends"] = "<",
-        ["precedes"] = ">",
-        ["conceal"] = "┊",
-        ["nbsp"] = "␣",
-      }
-    end,
-  },
 }
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
